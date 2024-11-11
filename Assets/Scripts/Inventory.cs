@@ -35,6 +35,19 @@ public class Inventory
             icon = item.icon;
             count += 1;
         }
+
+        public void RemoveItem()
+        {
+            if (count > 0)
+            {
+                count--;
+                if (count == 0)
+                {
+                    icon = null;
+                    type = CollectibleType.NONE;
+                }
+            }
+        }
     }
 
     public List<Slot> slots = new List<Slot>();
@@ -67,5 +80,10 @@ public class Inventory
                 return;
             }
         }
+    }
+
+    public void Remove(int index)
+    {
+        slots[index].RemoveItem();
     }
 }
