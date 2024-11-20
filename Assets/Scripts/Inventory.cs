@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 [System.Serializable]
 public class Inventory 
 {
     [System.Serializable]
     public class Slot
     {
-        public CollectibleType type;
+        public string itemName;
         public Sprite icon;
         public int count; //how many items in slot
         public int maxAllowed; //maximum allowed
 
         public Slot()
         {
-            type = CollectibleType.NONE;
+            itemName = "";
             count = 0;
             maxAllowed = 99;
         }
@@ -29,10 +31,10 @@ public class Inventory
             return false;
         }
 
-        public void AddItem(Collectible item)
+        public void AddItem(Item item)
         {
-            type = item.type;
-            icon = item.icon;
+            this.itemName = item.data.itemName;
+            this.icon = item.data.icon;
             count += 1;
         }
 
@@ -44,7 +46,7 @@ public class Inventory
                 if (count == 0)
                 {
                     icon = null;
-                    type = CollectibleType.NONE;
+                    itemName = "";
                 }
             }
         }
@@ -61,11 +63,11 @@ public class Inventory
         }
     }
 
-    public void Add(Collectible item)
+    public void Add(Item item)
     {
         foreach (Slot slot in slots)
         {
-            if (slot.type == item.type && slot.CanAddItem())
+            if (slot.itemName == item.data.itemName && slot.CanAddItem())
             {
                 slot.AddItem(item);
                 return;
@@ -74,7 +76,7 @@ public class Inventory
 
         foreach (Slot slot in slots)
         {
-            if (slot.type == CollectibleType.NONE)
+            if (slot.itemName == "")
             {
                 slot.AddItem(item);
                 return;

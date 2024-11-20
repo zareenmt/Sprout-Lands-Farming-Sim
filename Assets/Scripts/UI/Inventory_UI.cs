@@ -7,12 +7,6 @@ public class Inventory_UI : MonoBehaviour
     public Player player;
     public List<SlotsUI> slots = new List<SlotsUI>();
     public GameObject inventoryPanel;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -40,7 +34,7 @@ public class Inventory_UI : MonoBehaviour
         {
             for (int i = 0; i < slots.Count; i++)
             {
-                if (player.inventory.slots[i].type != CollectibleType.NONE)
+                if (player.inventory.slots[i].itemName != "")
                 {
                     slots[i].SetItem(player.inventory.slots[i]);
                 }
@@ -54,7 +48,7 @@ public class Inventory_UI : MonoBehaviour
 
     public void Remove(int slotID)
     {
-        Collectible itemToDrop = GameManager.instance.itemManager.GetItemByType(player.inventory.slots[slotID].type);
+        Item itemToDrop = GameManager.instance.itemManager.GetItemByName(player.inventory.slots[slotID].itemName);
         if (itemToDrop != null)
         {
             player.DropItem(itemToDrop);

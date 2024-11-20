@@ -8,10 +8,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public ItemManager itemManager;
+    public TileManager tileManager;
 
     private void Awake()
     {
         itemManager = GetComponent<ItemManager>();
+        tileManager = GetComponent<TileManager>();
         if (instance != null && instance != this)
         {
             Destroy(this.GameObject());

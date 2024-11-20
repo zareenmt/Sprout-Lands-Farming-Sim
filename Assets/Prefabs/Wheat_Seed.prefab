@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3896410532896416772}
   - component: {fileID: 144070425050575349}
   - component: {fileID: 8314422225358952158}
+  - component: {fileID: 529239521825382963}
   m_Layer: 0
   m_Name: Wheat_Seed
   m_TagString: Untagged
@@ -99,9 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d907b5dbeeee3249b78b8001b9847f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
-  icon: {fileID: 508930367, guid: 53e63222a502f8f428df7068ff1ed8fd, type: 3}
-  rb2D: {fileID: 0}
 --- !u!61 &144070425050575349
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -174,3 +172,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &529239521825382963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459471329625252795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c187c9d749e554bb83ad3038776af9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 4f4c62eec2c8a294c88f9d38aa605f54, type: 2}
+  rb2D: {fileID: 0}
