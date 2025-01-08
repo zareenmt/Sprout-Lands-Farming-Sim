@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     public void DropItem(Item item)
     {
         Vector2 spawnLocation = transform.position;
-        Vector2 spawnOffset = Random.insideUnitCircle * 1.25f;
+        Vector2 spawnOffset = Random.insideUnitCircle * 1.5f;
         Item droppedItem = Instantiate(item, spawnLocation + spawnOffset, Quaternion.identity);
         droppedItem.rb2D.AddForce(spawnOffset*0.2f,ForceMode2D.Impulse);
     }
